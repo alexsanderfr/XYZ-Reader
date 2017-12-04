@@ -148,9 +148,7 @@ public class ArticleDetailFragment extends Fragment implements
                         .getIntent(), getString(R.string.action_share)));
             }
         });
-
-        bindViews();
-        updateStatusBar();
+        mRootView.setVisibility(View.GONE);
         return mRootView;
     }
 
@@ -281,7 +279,9 @@ public class ArticleDetailFragment extends Fragment implements
             mCursor = null;
         }
 
+        getActivity().findViewById(R.id.progress_bar_detail).setVisibility(View.GONE);
         bindViews();
+        updateStatusBar();
     }
 
     @Override
