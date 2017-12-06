@@ -204,7 +204,7 @@ public class ArticleDetailFragment extends Fragment implements
         TextView bodyView = mRootView.findViewById(R.id.article_body);
 
 
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
+        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Roboto-Regular.ttf"));
 
         if (mCursor != null) {
 
@@ -254,27 +254,6 @@ public class ArticleDetailFragment extends Fragment implements
 
             mRootView.setVisibility(View.VISIBLE);
             getActivity().findViewById(R.id.progress_bar_detail).setVisibility(View.GONE);
-            /*
-            Animation fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in_animation);
-            fadeInAnimation.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {
-
-
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-
-                }
-            });
-            mRootView.startAnimation(fadeInAnimation);
-            */
         } else {
             mRootView.setVisibility(View.GONE);
             titleView.setText("N/A");
