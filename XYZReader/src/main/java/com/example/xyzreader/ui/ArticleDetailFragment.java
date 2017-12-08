@@ -232,6 +232,8 @@ public class ArticleDetailFragment extends Fragment implements
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
             Picasso.with(getActivity())
                     .load(mCursor.getString(ArticleLoader.Query.PHOTO_URL))
+                    .placeholder(getResources().getDrawable(R.drawable.empty_detail))
+                    .error(getResources().getDrawable(R.drawable.ic_error))
                     .resize(600, 200)
                     .centerCrop()
                     .into(mPhotoView, new Callback() {
@@ -247,7 +249,9 @@ public class ArticleDetailFragment extends Fragment implements
 
                         @Override
                         public void onError() {
-
+                            mRootView.findViewById(R.id.meta_bar)
+                                    .setBackgroundColor(getResources().getColor(android.R.color.black));
+                            updateStatusBar();
                         }
                     });
             mRootView.setVisibility(View.VISIBLE);

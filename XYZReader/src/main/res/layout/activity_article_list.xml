@@ -29,11 +29,15 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            app:navigationIcon="@drawable/logo"
-            android:background="@android:color/black"
-            app:navigationContentDescription="@string/app_name"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
+            android:layout_height="?actionBarSize"
+            android:background="@android:color/black"
+            android:paddingEnd="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingStart="8dp"
+            app:navigationContentDescription="@string/app_name"
+            app:navigationIcon="@drawable/logo">
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
