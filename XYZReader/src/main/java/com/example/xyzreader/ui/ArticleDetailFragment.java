@@ -12,6 +12,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -240,11 +241,15 @@ public class ArticleDetailFragment extends Fragment implements
                         @Override
                         public void onSuccess() {
                             Bitmap bitmap = ((BitmapDrawable)mPhotoView.getDrawable()).getBitmap();
-                            Palette p = Palette.from(bitmap).generate();
-                            mMutedColor = p.getDarkMutedColor(0xFF333333);
-                            mRootView.findViewById(R.id.meta_bar)
-                                    .setBackgroundColor(mMutedColor);
-                            updateStatusBar();
+                            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                                @Override
+                                public void onGenerated(@NonNull Palette palette) {
+                                    mMutedColor = palette.getDarkMutedColor(0xFF333333);
+                                    mRootView.findViewById(R.id.meta_bar)
+                                            .setBackgroundColor(mMutedColor);
+                                    updateStatusBar();
+                                }
+                            });
                         }
 
                         @Override

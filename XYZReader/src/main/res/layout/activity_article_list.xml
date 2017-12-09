@@ -31,7 +31,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:background="@android:color/black"
             android:paddingEnd="8dp"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
